@@ -1,237 +1,152 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Add this to the end of your existing CSS file */
+
+/* Comment Section Styling */
+.comment-section {
+    max-width: 90%;
+    margin: 50px auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: #ffe6f2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    overflow-x: hidden;
-    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+.comment-section h2 {
+    color: #ff4081;
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
 }
 
-.container {
-    position: relative;
+.login-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    max-width: 100%;
-}
-
-.envelope {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background-color: #ff80ab;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    cursor: pointer;
-    transition: transform 0.5s;
-    transform-style: preserve-3d;
-    margin-bottom: 30px;
-}
-
-.envelope.open {
-    transform: translateY(-100px);
-}
-
-.front {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #ff80ab, #ff4081);
-    z-index: 2;
-    transition: opacity 0.5s;
-}
-
-.front.open {
-    opacity: 0;
-}
-
-.mail-to {
-    font-family: 'Dancing Script', cursive;
-    font-size: 2.5rem;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-}
-
-.card {
-    position: absolute;
-    width: 280px;
-    height: 400px;
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(20px) scale(0.5);
-    opacity: 0;
-    transition: all 0.8s;
-    overflow-y: auto;
-    max-height: 70vh;
-    z-index: 1;
-}
-
-.card.show {
-    transform: translateY(50px) scale(1);
-    opacity: 1;
-    z-index: 3;
-}
-
-.letter-title {
-    font-family: 'Dancing Script', cursive;
-    color: #ff4081;
-    font-size: 2.2rem;
+    gap: 10px;
     margin-bottom: 20px;
-    text-align: center;
 }
 
-.letter-body {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
+.login-container input {
+    padding: 10px;
+    border: 1px solid #ffb6c1;
+    border-radius: 5px;
+    font-family: 'Poppins', sans-serif;
 }
 
-.letter-body p {
-    margin-bottom: 15px;
+.login-container input:focus {
+    outline: none;
+    border-color: #ff4081;
 }
 
-.signature {
-    font-family: 'Sacramento', cursive;
-    font-size: 1.5rem;
-    text-align: right;
-    margin-top: 30px;
-    color: #ff4081;
-}
-
-#sender-name {
-    font-size: 2rem;
-    font-weight: bold;
-    display: inline-block;
-    position: relative;
-}
-
-#sender-name::after {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: -5px;
-    left: 0;
-    background-color: #ff4081;
-}
-
-.instructions {
-    color: #ff4081;
-    font-size: 1.2rem;
-    text-align: center;
-    margin-bottom: 20px;
-    animation: pulse 1.5s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
-}
-
-.music-control {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-}
-
-#music-toggle {
+#login-btn, #submit-comment, #logout-btn {
     background-color: #ff80ab;
     color: white;
     border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    font-size: 1.5rem;
+    padding: 10px 15px;
+    border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s;
 }
 
-#music-toggle:hover {
+#login-btn:hover, #submit-comment:hover, #logout-btn:hover {
     background-color: #ff4081;
-    transform: scale(1.1);
 }
 
-.heart {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #ff4081;
-    transform: rotate(45deg);
-    animation: float 4s ease-in-out infinite;
-    opacity: 0.7;
+.login-message {
+    color: #ff4081;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 5px;
 }
 
-.heart::before,
-.heart::after {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: #ff4081;
-    border-radius: 50%;
+.comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.heart::before {
-    top: -10px;
-    left: 0;
+.comment-form textarea {
+    padding: 10px;
+    border: 1px solid #ffb6c1;
+    border-radius: 5px;
+    height: 100px;
+    resize: vertical;
+    font-family: 'Poppins', sans-serif;
 }
 
-.heart::after {
-    top: 0;
-    left: -10px;
+.comment-form textarea:focus {
+    outline: none;
+    border-color: #ff4081;
 }
 
-@keyframes float {
-    0% {
-        transform: translateY(0) rotate(45deg);
-        opacity: 0.7;
-    }
-    50% {
-        transform: translateY(-20px) rotate(45deg);
-        opacity: 0.5;
-    }
-    100% {
-        transform: translateY(0) rotate(45deg);
-        opacity: 0.7;
-    }
+.comments-container {
+    margin-top: 30px;
 }
 
+.comments-container h3 {
+    color: #ff4081;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.comment {
+    background-color: #fff5f8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.comment-author {
+    font-weight: bold;
+    color: #ff4081;
+}
+
+.comment-date {
+    font-size: 0.8rem;
+    color: #888;
+}
+
+.comment-content {
+    color: #555;
+    line-height: 1.4;
+}
+
+.hidden {
+    display: none;
+}
+
+#logout-btn {
+    background-color: #f48fb1;
+}
+
+.no-comments {
+    text-align: center;
+    color: #888;
+    font-style: italic;
+}
+
+/* Mobile responsiveness for comment section */
 @media (max-width: 768px) {
-    .envelope {
-        width: 250px;
-        height: 170px;
-    }
-    
-    .card {
-        width: 240px;
+    .comment-section {
+        max-width: 95%;
         padding: 15px;
     }
     
-    .letter-title {
-        font-size: 1.8rem;
+    .comment-section h2 {
+        font-size: 1.5rem;
     }
     
-    .letter-body {
-        font-size: 0.9rem;
+    .comments-container h3 {
+        font-size: 1.2rem;
     }
 }
