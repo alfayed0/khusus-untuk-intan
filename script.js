@@ -34,12 +34,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle envelope click
     envelope.addEventListener('click', function() {
         envelope.classList.add('open');
-        document.querySelector('.front').classList.add('open'); // Add open class to front element
+        document.querySelector('.front').classList.add('open');
         card.classList.add('show');
         instructions.style.display = 'none';
         
         // Start playing music when envelope is opened
-        backgroundMusic.play();
+        backgroundMusic.play().catch(error => {
+            console.log("Audio playback failed:", error);
+        });
         
         // Add typing effect to the letter
         const paragraphs = document.querySelectorAll('.letter-body p:not(.signature)');
@@ -64,7 +66,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle music toggle
     musicToggle.addEventListener('click', function() {
         if (backgroundMusic.paused) {
-            backgroundMusic.play();
+            backgroundMusic.play().catch(error => {
+                console.log("Audio playback failed:", error);
+            });
             musicToggle.innerHTML = '<i class="fas fa-music"></i>';
         } else {
             backgroundMusic.pause();
@@ -94,8 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
             confetti.style.left = Math.random() * 100 + 'vw';
             confetti.style.top = '-10px';
             confetti.style.opacity = Math.random() + 0.5;
-            confetti.style.animation = fall ${Math.random() * 3 + 2}s linear forwards;
-            confetti.style.transform = rotate(${Math.random() * 360}deg);
+            confetti.style.animation = `fall ${Math.random() * 3 + 2}s linear forwards`;
+            confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
             
             document.body.appendChild(confetti);
             
@@ -121,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
     
-    // Initialize
+    // Initialize hearts and signature check
     createHearts();
     card.addEventListener('scroll', checkSignatureVisibility);
 });
