@@ -34,14 +34,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle envelope click
     envelope.addEventListener('click', function() {
         envelope.classList.add('open');
-        document.querySelector('.front').classList.add('open');
+        document.querySelector('.front').classList.add('open'); // Add open class to front element
         card.classList.add('show');
         instructions.style.display = 'none';
         
         // Start playing music when envelope is opened
-        backgroundMusic.play().catch(error => {
-            console.log("Audio playback failed:", error);
-        });
+        backgroundMusic.play();
         
         // Add typing effect to the letter
         const paragraphs = document.querySelectorAll('.letter-body p:not(.signature)');
@@ -66,9 +64,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle music toggle
     musicToggle.addEventListener('click', function() {
         if (backgroundMusic.paused) {
-            backgroundMusic.play().catch(error => {
-                console.log("Audio playback failed:", error);
-            });
+            backgroundMusic.play();
             musicToggle.innerHTML = '<i class="fas fa-music"></i>';
         } else {
             backgroundMusic.pause();
@@ -125,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
     
-    // Initialize hearts and signature check
+    // Initialize
     createHearts();
     card.addEventListener('scroll', checkSignatureVisibility);
 });
