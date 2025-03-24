@@ -14,7 +14,7 @@
     <div class="music-control">
         <button id="music-toggle"><i class="fas fa-music"></i></button>
         <audio id="background-music" loop>
-            <source src="Daniel Caesar - Get You (feat. Kali Uchis).mp3" type="audio/mpeg">
+            <source src="file:///C:/Users/LENOVO/Downloads/Daniel%20Caesar%20-%20Get%20You%20(feat.%20Kali%20Uchis).mp3" type="audio/mpeg">
         </audio>
     </div>
 
@@ -50,6 +50,32 @@
         </div>
 
         <div class="hearts-container"></div>
+    </div>
+    
+    <!-- Comment Section -->
+    <div class="comment-section">
+        <h2>Tinggalkan Pesan untuk Intan</h2>
+        
+        <!-- Login Form -->
+        <div id="login-form" class="login-container">
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button id="login-btn">Login</button>
+            <p class="login-message"></p>
+        </div>
+        
+        <!-- Comment Form (Hidden until login) -->
+        <div id="comment-form" class="comment-form hidden">
+            <textarea id="comment-text" placeholder="Tulis pesan kamu di sini..."></textarea>
+            <button id="submit-comment">Kirim Pesan</button>
+            <button id="logout-btn">Logout</button>
+        </div>
+        
+        <!-- Comments Display -->
+        <div class="comments-container">
+            <h3>Pesan-pesan untuk Intan</h3>
+            <div id="comments-list"></div>
+        </div>
     </div>
 
     <script src="script.js"></script>
