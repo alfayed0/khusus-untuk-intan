@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         // Start auto scroll after last paragraph is typed
                         if (index === paragraphs.length - 1) {
                             setTimeout(() => {
-                                autoScroll(card, 15000); // 15 seconds to scroll through the entire letter
+                                autoScroll(card, 5000); // 15 seconds to scroll through the entire letter
                             }, 1000);
                         }
                     }
